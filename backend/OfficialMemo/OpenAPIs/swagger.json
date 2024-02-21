@@ -1,0 +1,2427 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "HR.Api",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "/services/hr/api"
+    }
+  ],
+  "paths": {
+    "/Colvir/GetEmployeeInfo": {
+      "get": {
+        "tags": [
+          "Colvir"
+        ],
+        "summary": "Возвращает данные сотрудника",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ColvirEmployeeModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ColvirEmployeeModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Colvir/GetEmployeeInfoByUserCode": {
+      "get": {
+        "tags": [
+          "Colvir"
+        ],
+        "parameters": [
+          {
+            "name": "login",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ColvirEmployeeModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ColvirEmployeeModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Colvir/GetAgreement": {
+      "get": {
+        "tags": [
+          "Colvir"
+        ],
+        "summary": "Возвращает договор сотрудника по табельному номеру",
+        "parameters": [
+          {
+            "name": "tabNum",
+            "in": "query",
+            "description": "Табельный номер сотрудника",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgreementModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgreementModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Colvir/GetEmployeeInfoByTabId": {
+      "get": {
+        "tags": [
+          "Colvir"
+        ],
+        "summary": "Возвращает данные сотрудника по табельному номеру",
+        "parameters": [
+          {
+            "name": "tabNum",
+            "in": "query",
+            "description": "Табельный номер сотрудника",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ColvirEmployeeModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ColvirEmployeeModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Colvir/GetChiefsInfoByTabId": {
+      "get": {
+        "tags": [
+          "Colvir"
+        ],
+        "summary": "Возвращает руководство сотруднику\r\nNLevel 2 - директор\r\nNLevel 3 - начальник",
+        "parameters": [
+          {
+            "name": "tabNum",
+            "in": "query",
+            "description": "Табельный номер сотрудника",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ColvirChiefModel"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ColvirChiefModel"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Colvir/GetBranchChiefsInfoByTabId": {
+      "get": {
+        "tags": [
+          "Colvir"
+        ],
+        "summary": "Возвращает руководство сотруднику в филиалах\r\nNLevel 3 - директор",
+        "parameters": [
+          {
+            "name": "tabNum",
+            "in": "query",
+            "description": "Табельный номер сотрудника",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ColvirChiefModel"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ColvirChiefModel"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Colvir/GetCuratorTabIdByTabId": {
+      "get": {
+        "tags": [
+          "Colvir"
+        ],
+        "summary": "Возвращает табельный номер куратора сотрудника",
+        "parameters": [
+          {
+            "name": "tabNum",
+            "in": "query",
+            "description": "Табельный номер сотрудника",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Colvir/GetDRPChiefInfo": {
+      "get": {
+        "tags": [
+          "Colvir"
+        ],
+        "summary": "Возвращает табельный номер директора ДРП",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Colvir/GetDBUChiefInfo": {
+      "get": {
+        "tags": [
+          "Colvir"
+        ],
+        "summary": "Возвращает табельный номер директора ДБУ",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Colvir/GetDepartmentChiefs": {
+      "get": {
+        "tags": [
+          "Colvir"
+        ],
+        "summary": "Возвращает списка курирующих департаментов по деп номеру",
+        "parameters": [
+          {
+            "name": "depCode",
+            "in": "query",
+            "description": "CBS Dep Code",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ColvirChiefModel"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ColvirChiefModel"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Colvir/GetBranchInfo": {
+      "get": {
+        "tags": [
+          "Colvir"
+        ],
+        "summary": "Возвращает названия, адрес и БИН филиала",
+        "parameters": [
+          {
+            "name": "branchCode",
+            "in": "query",
+            "description": "Код филиала",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BranchInfoModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BranchInfoModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Colvir/GetMobPhoneList": {
+      "get": {
+        "tags": [
+          "Colvir"
+        ],
+        "summary": "Возвращает номера мобильных телефонов сотрудника",
+        "parameters": [
+          {
+            "name": "tabNum",
+            "in": "query",
+            "description": "Табельный номер сотрудника",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Colvir/CheckStatusAndIIN": {
+      "post": {
+        "tags": [
+          "Colvir"
+        ],
+        "summary": "Проверяет данные сотрудников ДДО для расчета зарплаты",
+        "requestBody": {
+          "description": "Список данных о сотрудниках",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/ActSalaryModel"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/ActSalaryModel"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/ActSalaryModel"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ActSalaryModel"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ActSalaryModel"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Colvir/CheckStatusAndIINListGPH": {
+      "post": {
+        "tags": [
+          "Colvir"
+        ],
+        "summary": "Проверяет данные сотрудников ГПХ для расчета зарплаты",
+        "requestBody": {
+          "description": "Список данных о сотрудниках",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/ActSalaryModel"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/ActSalaryModel"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/ActSalaryModel"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ActSalaryModel"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ActSalaryModel"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Colvir/RunInsSalary": {
+      "post": {
+        "tags": [
+          "Colvir"
+        ],
+        "summary": "Назначает оклад сотрудникам",
+        "requestBody": {
+          "description": "Список данных о сотрудниках",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/EmployeeData"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/EmployeeData"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/EmployeeData"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EmployeeData"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EmployeeData"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Colvir/RunCalcSalary": {
+      "post": {
+        "tags": [
+          "Colvir"
+        ],
+        "summary": "Проводить операцию \"Расчет зарплаты\" по данным сотрудникам",
+        "requestBody": {
+          "description": "Список данных о сотрудниках",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/EmployeeData"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/EmployeeData"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/EmployeeData"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EmployeeData"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EmployeeData"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Colvir/RunCalcSalaryUndo": {
+      "post": {
+        "tags": [
+          "Colvir"
+        ],
+        "summary": "Проводить операцию \"Отмена расчет зарплаты\" по данным сотрудникам",
+        "requestBody": {
+          "description": "Список данных о сотрудниках",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/EmployeeData"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/EmployeeData"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/EmployeeData"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EmployeeData"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EmployeeData"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Colvir/ExportStatementReport": {
+      "get": {
+        "tags": [
+          "Colvir"
+        ],
+        "summary": "Выгружает сводную ведомость, для которой был выполнен расчет заработной платы",
+        "parameters": [
+          {
+            "name": "agrNum",
+            "in": "query",
+            "description": "Уникальный номер",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/StatementModel"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/StatementModel"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Colvir/exportStatement": {
+      "get": {
+        "tags": [
+          "Colvir"
+        ],
+        "summary": "Выгружает сводную ведомость в Excel, для которой был выполнен расчет заработной платы",
+        "parameters": [
+          {
+            "name": "period",
+            "in": "query",
+            "description": "Период заработный платы",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "agrNum",
+            "in": "query",
+            "description": "Уникальный номер",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Colvir/GetTabIdByIIN": {
+      "get": {
+        "tags": [
+          "Colvir"
+        ],
+        "summary": "Возвращает TAB_NUMBER(табельный номер) сотрудника включая уволенных по ИИН, TAXCODE - ИИН\"",
+        "parameters": [
+          {
+            "name": "iin",
+            "in": "query",
+            "description": "ИИН",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Colvir/GetPlaceOfResidenceByTabId": {
+      "get": {
+        "tags": [
+          "Colvir"
+        ],
+        "summary": "Возвращает место жительство по табельному номеру",
+        "parameters": [
+          {
+            "name": "tabNum",
+            "in": "query",
+            "description": "Табельный номер сотрудника",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Colvir/CheckCA": {
+      "get": {
+        "tags": [
+          "Colvir"
+        ],
+        "summary": "Метод проверки на работника ЦА",
+        "parameters": [
+          {
+            "name": "login",
+            "in": "query",
+            "description": "Учетная запись",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Colvir/CheckCAByTabId": {
+      "get": {
+        "tags": [
+          "Colvir"
+        ],
+        "summary": "Метод проверки на работника ЦА",
+        "parameters": [
+          {
+            "name": "tabId",
+            "in": "query",
+            "description": "Табельный номер",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/allHRProcess": {
+      "get": {
+        "tags": [
+          "Home"
+        ],
+        "summary": "Возвращает все сообщение HR процессов",
+        "parameters": [
+          {
+            "name": "processCode",
+            "in": "query",
+            "description": "Процесс код",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WorkAndArchiveDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WorkAndArchiveDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/inArchiveHRProcess": {
+      "get": {
+        "tags": [
+          "Home"
+        ],
+        "summary": "Возвращает все сообщение в архиве HR процессов",
+        "parameters": [
+          {
+            "name": "processCode",
+            "in": "query",
+            "description": "Процесс код",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WorkAndArchiveDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WorkAndArchiveDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/inWorkHRProcess": {
+      "get": {
+        "tags": [
+          "Home"
+        ],
+        "summary": "Возвращает все сообщение в работе HR процессов",
+        "parameters": [
+          {
+            "name": "processCode",
+            "in": "query",
+            "description": "Процесс код",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WorkAndArchiveDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WorkAndArchiveDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/allFilter": {
+      "get": {
+        "tags": [
+          "Home"
+        ],
+        "summary": "Возвращает все фильтрованные сообщение HR процессов",
+        "parameters": [
+          {
+            "name": "filterRulesJson",
+            "in": "query",
+            "description": "Фильтр JSON",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "processCode",
+            "in": "query",
+            "description": "Процесс код",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WorkAndArchiveDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WorkAndArchiveDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/messageHistory": {
+      "get": {
+        "tags": [
+          "Home"
+        ],
+        "summary": "Возвращает история сообщений HR процессов",
+        "parameters": [
+          {
+            "name": "processGuid",
+            "in": "query",
+            "description": "Process Guid",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ProcessMessage"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ProcessMessage"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/SendOTP": {
+      "get": {
+        "tags": [
+          "Sms"
+        ],
+        "summary": "Отправляет SMS-код с текстом",
+        "parameters": [
+          {
+            "name": "iin",
+            "in": "query",
+            "description": "ИИН клиента",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "clientCode",
+            "in": "query",
+            "description": "Табельный номер",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "phoneNumber",
+            "in": "query",
+            "description": "Номер телефона",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "smsText",
+            "in": "query",
+            "description": "Текст сообщения(Добавить в конце текста {0} для получение кода. Например: Код подтвержденя - {0}.)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "actualPeriodMin",
+            "in": "query",
+            "description": "Время ожидания(мин)",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OtpData"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OtpData"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ConfirmOTP": {
+      "get": {
+        "tags": [
+          "Sms"
+        ],
+        "summary": "Подтверждение SMS-кода",
+        "parameters": [
+          {
+            "name": "otprequestGuid",
+            "in": "query",
+            "description": "OTP RequestGuid",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "verificationCode",
+            "in": "query",
+            "description": "Верификационный код",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OtpData"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OtpData"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Sql/GetEmployeeInfo": {
+      "get": {
+        "tags": [
+          "Sql"
+        ],
+        "summary": "Возвращает табельный номер и ФИО сотрудника",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmployeeSql"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmployeeSql"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Sql/GetTabId": {
+      "get": {
+        "tags": [
+          "Sql"
+        ],
+        "summary": "Возвращает табельный номер сотрудника",
+        "parameters": [
+          {
+            "name": "userCode",
+            "in": "query",
+            "description": "Учетная запись",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Sql/GetActId": {
+      "get": {
+        "tags": [
+          "Sql"
+        ],
+        "summary": "Возвращает номер акта ГПХ",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Sql/GetUserCodeByTabId": {
+      "get": {
+        "tags": [
+          "Sql"
+        ],
+        "summary": "Возвращает учетная запись сотрудника",
+        "parameters": [
+          {
+            "name": "tabNum",
+            "in": "query",
+            "description": "Табельный номер",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Sql/GetIINWithTab": {
+      "get": {
+        "tags": [
+          "Sql"
+        ],
+        "summary": "Возвращает ИИН сотрудника",
+        "parameters": [
+          {
+            "name": "tabNum",
+            "in": "query",
+            "description": "Табельный номер",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Sql/GetBranchListAsync": {
+      "get": {
+        "tags": [
+          "Sql"
+        ],
+        "summary": "Возвращает список филиалов",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/BranchModel"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/BranchModel"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Sql/GetProcessGuidByRequestGuid": {
+      "get": {
+        "tags": [
+          "Sql"
+        ],
+        "summary": "Возвращает ProcessGuid используя RequestGuid",
+        "parameters": [
+          {
+            "name": "requestGuid",
+            "in": "query",
+            "description": "RequestGuid",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Sql/Sign": {
+      "post": {
+        "tags": [
+          "Sql"
+        ],
+        "summary": "Сохранить ЭЦП в базу",
+        "requestBody": {
+          "description": "Model",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SignMessageDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SignMessageDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SignMessageDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Sql/search": {
+      "get": {
+        "tags": [
+          "Sql"
+        ],
+        "summary": "Поиск людей",
+        "parameters": [
+          {
+            "name": "searchString",
+            "in": "query",
+            "description": "Фараза",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "loginRequired",
+            "in": "query",
+            "description": "Учетная запись требуется",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EmployeeSql"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EmployeeSql"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Sql/SetDecision": {
+      "get": {
+        "tags": [
+          "Sql"
+        ],
+        "summary": "Сохранение решение для нескольких сообщении",
+        "parameters": [
+          {
+            "name": "regNum",
+            "in": "query",
+            "description": "Рег. номер",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "empName",
+            "in": "query",
+            "description": "Имя работника",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "empCode",
+            "in": "query",
+            "description": "Табельный номер работника",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "decide",
+            "in": "query",
+            "description": "Решение",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "comment",
+            "in": "query",
+            "description": "Комментарий",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "iOStatus",
+            "in": "query",
+            "description": "ИО статус",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "formName",
+            "in": "query",
+            "description": "Название формы",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Sql/ResetDecision": {
+      "get": {
+        "tags": [
+          "Sql"
+        ],
+        "summary": "Сброс решение для нескольких сообщении",
+        "parameters": [
+          {
+            "name": "regNum",
+            "in": "query",
+            "description": "Рег. номер",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Sql/GetBranchCodeBPM": {
+      "get": {
+        "tags": [
+          "Sql"
+        ],
+        "summary": "Возврашает код и имя филиала",
+        "parameters": [
+          {
+            "name": "cbsDepCode",
+            "in": "query",
+            "description": "Dep Code",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BranchModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BranchModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Sql/CheckExecutorGroup": {
+      "get": {
+        "tags": [
+          "Sql"
+        ],
+        "summary": "Проверять есть ли в группе человек",
+        "parameters": [
+          {
+            "name": "executorCode",
+            "in": "query",
+            "description": "Код группы",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ActSalaryModel": {
+        "type": "object",
+        "properties": {
+          "processGuid": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "startDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "startWork": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "finishWork": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "costWork": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "regNum": {
+            "type": "string",
+            "nullable": true
+          },
+          "processStatus": {
+            "type": "string",
+            "nullable": true
+          },
+          "currentStep": {
+            "type": "string",
+            "nullable": true
+          },
+          "initiatorCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "initiatorName": {
+            "type": "string",
+            "nullable": true
+          },
+          "executorCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "executorName": {
+            "type": "string",
+            "nullable": true
+          },
+          "finishDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
+          "userCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "iin": {
+            "type": "string",
+            "nullable": true
+          },
+          "tabNum": {
+            "type": "string",
+            "nullable": true
+          },
+          "branch": {
+            "type": "string",
+            "nullable": true
+          },
+          "period": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "check": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AgreementModel": {
+        "type": "object",
+        "properties": {
+          "agrDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "agrNum": {
+            "type": "string",
+            "nullable": true
+          },
+          "dovDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "dovNum": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "BranchInfoModel": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "address": {
+            "type": "string",
+            "nullable": true
+          },
+          "bin": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "BranchModel": {
+        "type": "object",
+        "properties": {
+          "depCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "depName": {
+            "type": "string",
+            "nullable": true
+          },
+          "cbsDepId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ColvirChiefModel": {
+        "type": "object",
+        "properties": {
+          "nLevel": {
+            "type": "string",
+            "nullable": true
+          },
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "tabNum": {
+            "type": "string",
+            "nullable": true
+          },
+          "position": {
+            "type": "string",
+            "nullable": true
+          },
+          "posCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "dep": {
+            "type": "string",
+            "nullable": true
+          },
+          "depCode": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ColvirEmployeeModel": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "shortFIO": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "statusDesc": {
+            "type": "string",
+            "nullable": true
+          },
+          "posCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "position": {
+            "type": "string",
+            "nullable": true
+          },
+          "depCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "dep": {
+            "type": "string",
+            "nullable": true
+          },
+          "departmentCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "department": {
+            "type": "string",
+            "nullable": true
+          },
+          "branchCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "branch": {
+            "type": "string",
+            "nullable": true
+          },
+          "branchBIN": {
+            "type": "string",
+            "nullable": true
+          },
+          "branchAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "tabNum": {
+            "type": "string",
+            "nullable": true
+          },
+          "iin": {
+            "type": "string",
+            "nullable": true
+          },
+          "address": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Document": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "url": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EmployeeData": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "tabNum": {
+            "type": "string",
+            "nullable": true
+          },
+          "period": {
+            "type": "string",
+            "nullable": true
+          },
+          "agrNum": {
+            "type": "string",
+            "nullable": true
+          },
+          "agrDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "startWork": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "finishWork": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "costWork": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "check": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EmployeeSql": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "tabNum": {
+            "type": "string",
+            "nullable": true
+          },
+          "code": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "OtpData": {
+        "type": "object",
+        "properties": {
+          "requestGuid": {
+            "type": "string",
+            "nullable": true
+          },
+          "error": {
+            "type": "string",
+            "nullable": true
+          },
+          "result": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProcessMessage": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "processGuid": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "messageGuid": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "requestGuid": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "messageType": {
+            "type": "string",
+            "nullable": true
+          },
+          "stepName": {
+            "type": "string",
+            "nullable": true
+          },
+          "childCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "messageDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "messageComment": {
+            "type": "string",
+            "nullable": true
+          },
+          "messageStatus": {
+            "type": "string",
+            "nullable": true
+          },
+          "messageStatusName": {
+            "type": "string",
+            "nullable": true
+          },
+          "initiatorCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "initiatorName": {
+            "type": "string",
+            "nullable": true
+          },
+          "executorCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "executorName": {
+            "type": "string",
+            "nullable": true
+          },
+          "replyDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "responseRecieved": {
+            "type": "boolean"
+          },
+          "userCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "userName": {
+            "type": "string",
+            "nullable": true
+          },
+          "replyDecision": {
+            "type": "string",
+            "nullable": true
+          },
+          "replyDecisionName": {
+            "type": "string",
+            "nullable": true
+          },
+          "replyComment": {
+            "type": "string",
+            "nullable": true
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProcessMessage"
+            },
+            "nullable": true
+          },
+          "regNum": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SignMessageDto": {
+        "type": "object",
+        "properties": {
+          "processGuid": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "requestGuid": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "signature": {
+            "type": "string",
+            "nullable": true
+          },
+          "signDocument": {
+            "$ref": "#/components/schemas/Document"
+          },
+          "registerSignature": {
+            "type": "string",
+            "nullable": true
+          },
+          "data": {
+            "type": "string",
+            "nullable": true
+          },
+          "signType": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "StatementModel": {
+        "type": "object",
+        "properties": {
+          "tabId": {
+            "type": "string",
+            "nullable": true
+          },
+          "iin": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "posName": {
+            "type": "string",
+            "nullable": true
+          },
+          "depCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
+          "pensioner": {
+            "type": "string",
+            "nullable": true
+          },
+          "disability": {
+            "type": "string",
+            "nullable": true
+          },
+          "student": {
+            "type": "string",
+            "nullable": true
+          },
+          "motherChild": {
+            "type": "string",
+            "nullable": true
+          },
+          "adoptedPRC": {
+            "type": "string",
+            "nullable": true
+          },
+          "alimonyPRC": {
+            "type": "string",
+            "nullable": true
+          },
+          "litigationTotalDebt": {
+            "type": "string",
+            "nullable": true
+          },
+          "itogNach": {
+            "type": "string",
+            "nullable": true
+          },
+          "genderName": {
+            "type": "string",
+            "nullable": true
+          },
+          "salary": {
+            "type": "string",
+            "nullable": true
+          },
+          "workDay": {
+            "type": "string",
+            "nullable": true
+          },
+          "itogUdr": {
+            "type": "string",
+            "nullable": true
+          },
+          "pensUd": {
+            "type": "string",
+            "nullable": true
+          },
+          "podNal": {
+            "type": "string",
+            "nullable": true
+          },
+          "vznOSMS": {
+            "type": "string",
+            "nullable": true
+          },
+          "sum2160": {
+            "type": "string",
+            "nullable": true
+          },
+          "sum2170": {
+            "type": "string",
+            "nullable": true
+          },
+          "sum50000": {
+            "type": "string",
+            "nullable": true
+          },
+          "sum30000": {
+            "type": "string",
+            "nullable": true
+          },
+          "sum40000": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WorkAndArchiveDto": {
+        "type": "object",
+        "properties": {
+          "processGuid": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "startDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "processCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "regNum": {
+            "type": "string",
+            "nullable": true
+          },
+          "branchName": {
+            "type": "string",
+            "nullable": true
+          },
+          "depName": {
+            "type": "string",
+            "nullable": true
+          },
+          "summary": {
+            "type": "string",
+            "nullable": true
+          },
+          "processStatus": {
+            "type": "string",
+            "nullable": true
+          },
+          "currentStep": {
+            "type": "string",
+            "nullable": true
+          },
+          "initiatorCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "initiatorName": {
+            "type": "string",
+            "nullable": true
+          },
+          "executorCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "executorName": {
+            "type": "string",
+            "nullable": true
+          },
+          "finishDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
+          "schemeName": {
+            "type": "string",
+            "nullable": true
+          },
+          "userCode": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

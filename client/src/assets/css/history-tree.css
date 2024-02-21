@@ -1,0 +1,147 @@
+/* .process_history_tree_item {
+  cursor: pointer;
+  width: 100%;
+}
+.process_history_tree_item:hover {
+  background-color: rgba(211, 211, 211, 0.5);
+} */
+.is-selected {
+    background-color: lightgray;
+}
+.original-executor:hover {
+    @apply tw-text-secondary tw-cursor-pointer
+}
+
+.original-executor:hover {
+    @apply tw-text-secondary tw-cursor-pointer
+}
+
+.node-color {
+    color: var(--secondary-color) !important;
+}
+
+.tree-down {
+    font-size: 31px;
+    position: absolute;
+    font-weight: 300;
+}
+
+.tree-basis {
+    font-size: 31px;
+    position: absolute;
+    margin-top: -16px;
+    font-weight: 300;
+    transform: scale(1, 1.04);
+}
+
+.right-chevron {
+    font-size: 1rem;
+    font-weight: 12px;
+    cursor: pointer;
+    margin-left: -5px;
+    vertical-align: top;
+    margin-top: -2.3px;
+}
+
+.ending-circle {
+    font-size: 6.5px;
+    display: inline;
+    vertical-align: text-top;
+}
+
+.tree-file-basis {
+    font-size: 30px;
+    position: absolute;
+    margin-top: -16px;
+    font-weight: 300;
+    transform: scale(1, 1.2);
+}
+
+.message-comment {
+    margin-left: 42px;
+    position: absolute;
+    display: flex;
+    padding-bottom: 7px;
+    vertical-align: top;
+    margin-top: -5px;
+}
+
+.execute-comment {
+    padding-top: 2px;
+    margin-top: -5px;
+    position: absolute;
+    display: flex;
+    vertical-align: top;
+}
+
+.step-name {
+    position: absolute;
+    display: flex;
+    flex-direction:column;
+    vertical-align: top;
+}
+
+
+.status {
+    margin-top: 4px;
+    margin-left: 13px;
+    position: absolute;
+    vertical-align: top;
+}
+
+.standard-scale {
+    transform: scale(1, 1.4);
+}
+
+.long-scale {
+    transform: scale(1, 1.7);
+}
+
+.inline-icon {
+    position: absolute;
+    margin-top: 1px;
+}
+
+.p-tooltip-right {
+    max-width: 27rem;
+}
+
+.p-tooltip-left {
+    max-width: 27rem;
+}
+
+.p-tooltip-top {
+    max-width: 27rem;
+}
+
+.arrow-right {
+    position: absolute;
+    margin-top: 3px;
+    font-weight: 900;
+    transform: scale(1.65, 1);
+}
+.rotator{
+    transition: transform 0.01s ease-in;
+}
+.visible-setter{
+    transition:opacity 0.5s linear;
+}
+
+.with-link:hover {
+    color: var(--magenta-color)
+}
+
+.with-link {
+    color: var(--secondary-color);
+}
+
+.without-link:hover {
+    color: var(--secondary-color);
+}
+
+.without-link {
+    color: var(--magenta-color)
+}
+.custom-width-webkit-available {
+    width: -webkit-fill-available;
+}

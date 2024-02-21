@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Otbasy.FileServer.Abstractions" Version="0.0.1" />
+        <PackageReference Include="Otbasy.FileServer.Client" Version="0.0.5" />
+        <PackageReference Include="Otbasy.LocalizableString" Version="2.0.1" />
+        <PackageReference Include="Otbasy.PdfProcessor.Client" Version="0.0.17" />
+        <PackageReference Include="Otbasy.PdfProcessor.Models" Version="0.0.17" />
+        <PackageReference Include="RazorEngineCore" Version="2022.8.1" />
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="Views\**" CopyToOutputDirectory="PreserveNewest" />
+    </ItemGroup>
+</Project>

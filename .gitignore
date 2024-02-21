@@ -1,0 +1,5 @@
+src/client2
+**/~$*.*
+~*
+src/backend/.idea/*
+.idea/*

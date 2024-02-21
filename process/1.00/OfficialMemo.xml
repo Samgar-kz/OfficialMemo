@@ -1,0 +1,776 @@
+<Process>
+  <Blocks>
+    <Block id="54" type="Start" version="1">
+      <BlockData>
+        <Comment>Создание служебной записки</Comment>
+        <ProcessName>Служебная записка</ProcessName>
+        <ReturnValue />
+        <Scheme id="OfficialMemoBase">
+          <Field id="root" name="Корень" descr="" type="xml" repeat="0" hidden="0" default="" isnull="0" modifier="internal" link="none" values="" complex="" field="" out="0">
+            <Field id="messageGuid" name="messageGuid" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+            <Field id="message" name="Сообщение" descr="" type="xml" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="">
+              <Field id="executor" name="Исполнитель" descr="" type="xml" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="">
+                <Field id="firstName" name="Имя" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+                <Field id="lastName" name="Фамилия" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+                <Field id="middleName" name="Отчество" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+                <Field id="code" name="Код" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+              </Field>
+              <Field id="subject" name="Тема" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+              <Field id="language" name="Язык" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="русский;қазақ" complex="" field="" out="" />
+              <Field id="recipients" name="Получатели" descr="" type="xml" repeat="" hidden="" default="" isnull="0" modifier="internal" link="none" values="" complex="" field="" out="">
+                <Field id="recipient" name="Получатель" descr="" type="xml" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="">
+                  <Field id="firstName" name="Имя" descr="" type="string" repeat="" hidden="" default="" isnull="0" modifier="internal" link="none" values="" complex="" field="" out="" />
+                  <Field id="lastName" name="Фамилия" descr="" type="string" repeat="" hidden="" default="" isnull="0" modifier="internal" link="none" values="" complex="" field="" out="" />
+                  <Field id="middleName" name="Отчество" descr="" type="string" repeat="" hidden="" default="" isnull="0" modifier="internal" link="none" values="" complex="" field="" out="" />
+                  <Field id="code" name="Код" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+                  <Field id="email" name="Email" descr="" type="string" repeat="" hidden="" default="" isnull="0" modifier="internal" link="none" values="" complex="" field="" out="" />
+                  <Field id="decision" name="Решение" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+                </Field>
+              </Field>
+              <Field id="signer" name="Подписывающий" descr="" type="xml" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="">
+                <Field id="firstName" name="Имя" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+                <Field id="lastName" name="Фамилия" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+                <Field id="middleName" name="Отчество" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+                <Field id="code" name="Код" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+              </Field>
+              <Field id="confidenceType" name="Тип конфиденциальности " descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+              <Field id="indexNomenclature" name="Индекс номенклатуры" descr="" type="string" repeat="" hidden="" default="" isnull="1" modifier="internal" link="none" values="" complex="" field="" out="" />
+              <Field id="amountPage" name="Количестов листов" descr="" type="string" repeat="" hidden="" default="" isnull="1" modifier="internal" link="none" values="" complex="" field="" out="" />
+              <Field id="approvalMode" name="Тип согласования" descr="" type="string" repeat="" hidden="" default="" isnull="1" modifier="internal" link="none" values="" complex="" field="" out="" />
+              <Field id="summary" name="Краткое содержание " descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+              <Field id="attachments" name="Вложения" descr="" type="xml" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="">
+                <Field id="attachment" name="Вложение" descr="" type="string" repeat="1" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+              </Field>
+              <Field id="approvers" name="Согласующие" descr="" type="xml" repeat="" hidden="" default="" isnull="1" modifier="internal" link="none" values="" complex="" field="" out="">
+                <Field id="approver" name="Согласующий" descr="" type="xml" repeat="1" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="">
+                  <Field id="firstName" name="Имя" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+                  <Field id="lastName" name="Фамилия" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+                  <Field id="middleName" name="Отчество" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+                  <Field id="code" name="Код" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+                  <Field id="decision" name="Решение" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+                </Field>
+              </Field>
+              <Field id="approvalRequired" name="approvalRequired" descr="" type="bool" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+              <Field id="registrarRequired" name="Требуется регистратор" descr="" type="bool" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+              <Field id="registrarCode" name="Регистрирующий" descr="" type="string" repeat="" hidden="" default="" isnull="1" modifier="internal" link="none" values="" complex="" field="" out="" />
+            </Field>
+            <Field id="reply" name="Решение" descr="" type="xml" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="">
+              <Field id="dec" name="dec" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="accept;rework" complex="" field="" out="" />
+              <Field id="decn" name="decn" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+              <Field id="comment" name="ReplyComment" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+              <Field id="documents" name="documents" descr="" type="xml" repeat="" hidden="" default="" isnull="1" modifier="internal" link="none" values="" complex="" field="" out="">
+                <Field id="document" name="document" descr="" type="string" repeat="1" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+              </Field>
+              <Field id="repliedBy" name="repliedBy" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+              <Field id="replyDate" name="replyDate" descr="" type="double" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+            </Field>
+            <Field id="signedBy" name="signedBy" descr="" type="string" repeat="" hidden="" default="" isnull="1" modifier="internal" link="none" values="" complex="" field="" out="" />
+          </Field>
+        </Scheme>
+        <DocsData />
+        <StartDocName />
+        <LinkData />
+        <MessageData>
+          <IsDefined>1</IsDefined>
+          <Scheme id="OfficialMemoStart">
+            <Field id="root" name="Корень" descr="" type="xml" repeat="0" hidden="0" default="" isnull="0" modifier="internal" link="none" values="" complex="" field="&lt;Expression format=&quot;field&quot; type=&quot;xml&quot;&gt;&lt;Value&gt;OfficialMemoBase#root/message&lt;/Value&gt;&lt;Compiled /&gt;&lt;/Expression&gt;" out="1">
+              <Field id="executor" name="Исполнитель" descr="" type="xml" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="">
+                <Field id="firstName" name="Имя" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+                <Field id="lastName" name="Фамилия" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+                <Field id="middleName" name="Отчество" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+                <Field id="code" name="Код" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+              </Field>
+              <Field id="language" name="Язык" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="русский;қазақ" complex="" field="" out="" />
+              <Field id="signer" name="Подписывающий" descr="" type="xml" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="">
+                <Field id="firstName" name="Имя" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+                <Field id="lastName" name="Фамилия" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+                <Field id="middleName" name="Отчество" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+                <Field id="code" name="Код" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+              </Field>
+              <Field id="confidenceType" name="Тип конфиденциальности " descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+              <Field id="approvalMode" name="Тип согласования" descr="" type="string" repeat="" hidden="" default="" isnull="1" modifier="internal" link="none" values="" complex="" field="" out="" />
+              <Field id="summary" name="Краткое содержание " descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+              <Field id="attachments" name="Вложения" descr="" type="xml" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="">
+                <Field id="attachment" name="Вложение" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+              </Field>
+              <Field id="approvers" name="Согласующие" descr="" type="xml" repeat="" hidden="" default="" isnull="1" modifier="internal" link="none" values="" complex="" field="" out="">
+                <Field id="approver" name="Согласующий" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+              </Field>
+              <Field id="approvalRequired" name="approvalRequired" descr="" type="bool" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+              <Field id="messageGuid" name="messageGuid" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="&lt;Expression format=&quot;field&quot; type=&quot;string&quot;&gt;&lt;Value&gt;OfficialMemoBase#root/messageGuid&lt;/Value&gt;&lt;Compiled /&gt;&lt;/Expression&gt;" out="1" />
+              <Field id="recipient" name="Получатель" descr="" type="xml" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="">
+                <Field id="name" name="Имя" descr="" type="string" repeat="" hidden="" default="" isnull="1" modifier="internal" link="none" values="" complex="" field="" out="" />
+                <Field id="email" name="Email" descr="" type="string" repeat="" hidden="" default="" isnull="1" modifier="internal" link="none" values="" complex="" field="" out="" />
+                <Field id="isEsedo" name="isEsedo" descr="" type="string" repeat="" hidden="" default="" isnull="1" modifier="internal" link="none" values="" complex="" field="" out="" />
+                <Field id="isBaiterek" name="isBaiterek" descr="" type="string" repeat="" hidden="" default="0" isnull="0" modifier="internal" link="none" values="1;0" complex="" field="" out="" />
+              </Field>
+              <Field id="registrarCode" name="Регистрирующий" descr="" type="string" repeat="" hidden="" default="" isnull="1" modifier="internal" link="none" values="" complex="" field="" out="" />
+            </Field>
+          </Scheme>
+          <Table>
+            <Row>
+              <Expression format="field" type="xml">
+                <Value>OfficialMemoBase#root/message</Value>
+                <Compiled />
+              </Expression>
+              <Field>OfficialMemoStart#root</Field>
+              <Output>1</Output>
+            </Row>
+            <Row>
+              <Expression format="field" type="string">
+                <Value>OfficialMemoBase#root/messageGuid</Value>
+                <Compiled />
+              </Expression>
+              <Field>OfficialMemoStart#root/messageGuid</Field>
+              <Output>1</Output>
+            </Row>
+          </Table>
+          <Reference />
+          <MsgComment>
+            <Expression format="constant" type="string">
+              <Value>Создание исходящего документа</Value>
+              <Compiled />
+            </Expression>
+          </MsgComment>
+        </MessageData>
+        <DocLoadingData>
+          <DocList />
+          <Reference />
+          <MsgComment />
+        </DocLoadingData>
+        <DocLibrary />
+      </BlockData>
+      <NextBlocks>
+        <NextBlock id="696" save="1" comment="Создание служебной записки" condition="" />
+      </NextBlocks>
+    </Block>
+    <Block id="590" type="Message" version="1">
+      <BlockData>
+        <Comment>Согласование</Comment>
+        <Scheme id="OfficialMemoApprove">
+          <Field id="root" name="Корень" descr="" type="xml" repeat="0" hidden="0" default="" isnull="0" modifier="internal" link="none" values="" complex="" field="" out="0">
+            <Field id="id" name="id" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="&lt;Expression format=&quot;field&quot; type=&quot;string&quot;&gt;&lt;Value&gt;OfficialMemoBase#root/messageGuid&lt;/Value&gt;&lt;Compiled /&gt;&lt;/Expression&gt;" out="" />
+            <Field id="message" name="Сообщение" descr="" type="xml" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="&lt;Expression format=&quot;field&quot; type=&quot;xml&quot;&gt;&lt;Value&gt;OfficialMemoBase#root/message&lt;/Value&gt;&lt;Compiled /&gt;&lt;/Expression&gt;" out="0">
+              <Field id="executor" name="Исполнитель" descr="" type="xml" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="">
+                <Field id="firstName" name="Имя" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+                <Field id="lastName" name="Фамилия" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+                <Field id="middleName" name="Отчество" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+                <Field id="code" name="Код" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+              </Field>
+              <Field id="subject" name="Тема" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+              <Field id="language" name="Язык" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="русский;қазақ" complex="" field="" out="" />
+              <Field id="recipients" name="Получатели" descr="" type="xml" repeat="" hidden="" default="" isnull="0" modifier="internal" link="none" values="" complex="" field="" out="">
+                <Field id="recipient" name="Получатель" descr="" type="xml" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="">
+                  <Field id="firstName" name="Имя" descr="" type="string" repeat="" hidden="" default="" isnull="0" modifier="internal" link="none" values="" complex="" field="" out="" />
+                  <Field id="lastName" name="Фамилия" descr="" type="string" repeat="" hidden="" default="" isnull="0" modifier="internal" link="none" values="" complex="" field="" out="" />
+                  <Field id="middleName" name="Отчество" descr="" type="string" repeat="" hidden="" default="" isnull="0" modifier="internal" link="none" values="" complex="" field="" out="" />
+                  <Field id="code" name="Код" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+                  <Field id="email" name="Email" descr="" type="string" repeat="" hidden="" default="" isnull="0" modifier="internal" link="none" values="" complex="" field="" out="" />
+                  <Field id="decision" name="Решение" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+                </Field>
+              </Field>
+              <Field id="signer" name="Подписывающий" descr="" type="xml" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="">
+                <Field id="firstName" name="Имя" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+                <Field id="lastName" name="Фамилия" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+                <Field id="middleName" name="Отчество" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+                <Field id="code" name="Код" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+              </Field>
+              <Field id="confidenceType" name="Тип конфиденциальности " descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+              <Field id="indexNomenclature" name="Индекс номенклатуры" descr="" type="string" repeat="" hidden="" default="" isnull="1" modifier="internal" link="none" values="" complex="" field="" out="" />
+              <Field id="amountPage" name="Количестов листов" descr="" type="string" repeat="" hidden="" default="" isnull="1" modifier="internal" link="none" values="" complex="" field="" out="" />
+              <Field id="approvalMode" name="Тип согласования" descr="" type="string" repeat="" hidden="" default="" isnull="1" modifier="internal" link="none" values="" complex="" field="" out="" />
+              <Field id="summary" name="Краткое содержание " descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+              <Field id="attachments" name="Вложения" descr="" type="xml" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="">
+                <Field id="attachment" name="Вложение" descr="" type="string" repeat="1" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+              </Field>
+              <Field id="approvers" name="Согласующие" descr="" type="xml" repeat="" hidden="" default="" isnull="1" modifier="internal" link="none" values="" complex="" field="" out="">
+                <Field id="approver" name="Согласующий" descr="" type="xml" repeat="1" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="">
+                  <Field id="firstName" name="Имя" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+                  <Field id="lastName" name="Фамилия" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+                  <Field id="middleName" name="Отчество" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+                  <Field id="code" name="Код" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+                  <Field id="decision" name="Решение" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+                </Field>
+              </Field>
+              <Field id="approvalRequired" name="approvalRequired" descr="" type="bool" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+              <Field id="registrarCode" name="Регистрирующий" descr="" type="string" repeat="" hidden="" default="" isnull="1" modifier="internal" link="none" values="" complex="" field="" out="" />
+            </Field>
+            <Field id="reply" name="Решение" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="rework;accept" complex="" field="" out="0" />
+          </Field>
+        </Scheme>
+        <Field>OfficialMemoApprove#root/reply</Field>
+        <ForAll>0</ForAll>
+        <SubprocessAllowed>0</SubprocessAllowed>
+        <MsgComment>
+          <Expression format="constant" type="string">
+            <Value>Согласование</Value>
+            <Compiled />
+          </Expression>
+        </MsgComment>
+        <Table>
+          <Row>
+            <Expression format="field" type="string">
+              <Value>OfficialMemoBase#root/messageGuid</Value>
+              <Compiled />
+            </Expression>
+            <Field>OfficialMemoApprove#root/id</Field>
+            <Output />
+          </Row>
+          <Row>
+            <Expression format="field" type="xml">
+              <Value>OfficialMemoBase#root/message</Value>
+              <Compiled />
+            </Expression>
+            <Field>OfficialMemoApprove#root/message</Field>
+            <Output>0</Output>
+          </Row>
+        </Table>
+        <Reference />
+        <AbsDate />
+        <RelDate>
+          <Expression format="constant" type="int">
+            <Value>1000000</Value>
+            <Compiled />
+          </Expression>
+        </RelDate>
+        <Executors>
+          <Executor>
+            <Code>
+              <Expression format="constant" type="string">
+                <Value>SUBREQUEST_OFFICIALMEMO_APPROVERS</Value>
+                <Compiled />
+              </Expression>
+            </Code>
+          </Executor>
+        </Executors>
+        <Inspectors />
+        <DeadLine />
+      </BlockData>
+      <NextBlocks>
+        <NextBlock id="664" save="1" comment="На подписании" condition="accept" />
+        <NextBlock id="590" save="0" comment="" condition="Timeout" />
+        <NextBlock id="702" save="1" comment="На доработку" condition="rework" />
+      </NextBlocks>
+    </Block>
+    <Block id="664" type="Message" version="1">
+      <BlockData>
+        <Comment />
+        <Scheme id="OfficialMemoSigning">
+          <Field id="root" name="Корень" descr="" type="xml" repeat="0" hidden="0" default="" isnull="0" modifier="internal" link="none" values="" complex="" field="" out="0">
+            <Field id="id" name="id" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="&lt;Expression format=&quot;field&quot; type=&quot;string&quot;&gt;&lt;Value&gt;OfficialMemoBase#root/messageGuid&lt;/Value&gt;&lt;Compiled /&gt;&lt;/Expression&gt;" out="" />
+            <Field id="reply" name="Решение" descr="" type="xml" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="&lt;Expression format=&quot;field&quot; type=&quot;xml&quot;&gt;&lt;Value&gt;OfficialMemoBase#root/reply&lt;/Value&gt;&lt;Compiled /&gt;&lt;/Expression&gt;" out="1">
+              <Field id="dec" name="dec" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="accept;rework" complex="" field="" out="" />
+              <Field id="decn" name="decn" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+              <Field id="comment" name="ReplyComment" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+              <Field id="documents" name="documents" descr="" type="xml" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="">
+                <Field id="document" name="document" descr="" type="string" repeat="1" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+              </Field>
+              <Field id="repliedBy" name="repliedBy" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+              <Field id="replyDate" name="replyDate" descr="" type="double" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+            </Field>
+          </Field>
+        </Scheme>
+        <Field>OfficialMemoSigning#root/reply/dec</Field>
+        <ForAll>0</ForAll>
+        <SubprocessAllowed>0</SubprocessAllowed>
+        <MsgComment>
+          <Expression format="constant" type="string">
+            <Value>Подписание</Value>
+            <Compiled />
+          </Expression>
+        </MsgComment>
+        <Table>
+          <Row>
+            <Expression format="field" type="string">
+              <Value>OfficialMemoBase#root/messageGuid</Value>
+              <Compiled />
+            </Expression>
+            <Field>OfficialMemoSigning#root/id</Field>
+            <Output />
+          </Row>
+          <Row>
+            <Expression format="field" type="xml">
+              <Value>OfficialMemoBase#root/reply</Value>
+              <Compiled />
+            </Expression>
+            <Field>OfficialMemoSigning#root/reply</Field>
+            <Output>1</Output>
+          </Row>
+        </Table>
+        <Reference />
+        <AbsDate />
+        <RelDate>
+          <Expression format="constant" type="int">
+            <Value>1000000</Value>
+            <Compiled />
+          </Expression>
+        </RelDate>
+        <Executors>
+          <Executor>
+            <Code>
+              <Expression format="field" type="string">
+                <Value>OfficialMemoBase#root/message/signer/code</Value>
+                <Compiled />
+              </Expression>
+            </Code>
+          </Executor>
+        </Executors>
+        <Inspectors />
+        <DeadLine />
+      </BlockData>
+      <NextBlocks>
+        <NextBlock id="740" save="0" comment="" condition="accept" />
+        <NextBlock id="664" save="0" comment="" condition="redirect" />
+        <NextBlock id="664" save="0" comment="" condition="Timeout" />
+        <NextBlock id="702" save="1" comment="На доработку" condition="rework" />
+      </NextBlocks>
+    </Block>
+    <Block id="670" type="Message" version="1">
+      <BlockData>
+        <Comment>Доработка</Comment>
+        <Scheme id="OfficialMemoRework">
+          <Field id="root" name="Корень" descr="" type="xml" repeat="0" hidden="0" default="" isnull="0" modifier="internal" link="none" values="" complex="" field="" out="0">
+            <Field id="id" name="id" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="&lt;Expression format=&quot;field&quot; type=&quot;string&quot;&gt;&lt;Value&gt;OfficialMemoBase#root/messageGuid&lt;/Value&gt;&lt;Compiled /&gt;&lt;/Expression&gt;" out="" />
+            <Field id="message" name="Сообщение" descr="" type="xml" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="&lt;Expression format=&quot;field&quot; type=&quot;xml&quot;&gt;&lt;Value&gt;OfficialMemoBase#root/message&lt;/Value&gt;&lt;Compiled /&gt;&lt;/Expression&gt;" out="1">
+              <Field id="executor" name="Исполнитель" descr="" type="xml" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="">
+                <Field id="firstName" name="Имя" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+                <Field id="lastName" name="Фамилия" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+                <Field id="middleName" name="Отчество" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+                <Field id="code" name="Код" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+              </Field>
+              <Field id="language" name="Язык" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="русский;қазақ" complex="" field="" out="" />
+              <Field id="recipient" name="Получатель" descr="" type="xml" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="">
+                <Field id="firstName" name="Имя" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+                <Field id="lastName" name="Фамилия" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+                <Field id="middleName" name="Отчество" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+              </Field>
+              <Field id="signer" name="Подписывающий" descr="" type="xml" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="">
+                <Field id="firstName" name="Имя" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+                <Field id="lastName" name="Фамилия" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+                <Field id="middleName" name="Отчество" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+                <Field id="code" name="Код" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+              </Field>
+              <Field id="confidenceType" name="Тип конфиденциальности " descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+              <Field id="approvalMode" name="Тип согласования" descr="" type="string" repeat="" hidden="" default="" isnull="1" modifier="internal" link="none" values="" complex="" field="" out="" />
+              <Field id="summary" name="Краткое содержание " descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+              <Field id="attachments" name="Вложения" descr="" type="xml" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="">
+                <Field id="attachment" name="Вложение" descr="" type="string" repeat="1" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+              </Field>
+              <Field id="approvers" name="Согласующие" descr="" type="xml" repeat="" hidden="" default="" isnull="1" modifier="internal" link="none" values="" complex="" field="" out="">
+                <Field id="approver" name="Согласующий" descr="" type="xml" repeat="1" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="">
+                  <Field id="firstName" name="Имя" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+                  <Field id="lastName" name="Фамилия" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+                  <Field id="middleName" name="Отчество" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+                  <Field id="code" name="Код" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+                  <Field id="decision" name="Решение" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+                </Field>
+              </Field>
+              <Field id="approvalRequired" name="approvalRequired" descr="" type="bool" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+            </Field>
+            <Field id="reply" name="Решение" descr="" type="xml" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="&lt;Expression format=&quot;field&quot; type=&quot;xml&quot;&gt;&lt;Value&gt;OfficialMemoBase#root/reply&lt;/Value&gt;&lt;Compiled /&gt;&lt;/Expression&gt;" out="">
+              <Field id="dec" name="dec" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="accept" complex="" field="" out="" />
+              <Field id="decn" name="decn" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+              <Field id="comment" name="ReplyComment" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+              <Field id="documents" name="documents" descr="" type="xml" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="">
+                <Field id="document" name="document" descr="" type="string" repeat="1" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+              </Field>
+              <Field id="repliedBy" name="repliedBy" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+              <Field id="replyDate" name="replyDate" descr="" type="double" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+            </Field>
+          </Field>
+        </Scheme>
+        <Field>OfficialMemoRework#root/reply/dec</Field>
+        <ForAll>0</ForAll>
+        <SubprocessAllowed>0</SubprocessAllowed>
+        <MsgComment>
+          <Expression format="constant" type="string">
+            <Value>Доработка служебной записки</Value>
+            <Compiled />
+          </Expression>
+        </MsgComment>
+        <Table>
+          <Row>
+            <Expression format="field" type="string">
+              <Value>OfficialMemoBase#root/messageGuid</Value>
+              <Compiled />
+            </Expression>
+            <Field>OfficialMemoRework#root/id</Field>
+            <Output />
+          </Row>
+          <Row>
+            <Expression format="field" type="xml">
+              <Value>OfficialMemoBase#root/message</Value>
+              <Compiled />
+            </Expression>
+            <Field>OfficialMemoRework#root/message</Field>
+            <Output>1</Output>
+          </Row>
+          <Row>
+            <Expression format="field" type="xml">
+              <Value>OfficialMemoBase#root/reply</Value>
+              <Compiled />
+            </Expression>
+            <Field>OfficialMemoRework#root/reply</Field>
+            <Output />
+          </Row>
+        </Table>
+        <Reference />
+        <AbsDate />
+        <RelDate>
+          <Expression format="constant" type="int">
+            <Value>1000000</Value>
+            <Compiled />
+          </Expression>
+        </RelDate>
+        <Executors>
+          <Executor>
+            <Code>
+              <Expression format="field" type="string">
+                <Value>OfficialMemoBase#root/message/executor/code</Value>
+                <Compiled />
+              </Expression>
+            </Code>
+          </Executor>
+        </Executors>
+        <Inspectors />
+        <DeadLine />
+      </BlockData>
+      <NextBlocks>
+        <NextBlock id="696" save="1" comment="" condition="accept" />
+        <NextBlock id="696" save="1" comment="" condition="Null" />
+        <NextBlock id="670" save="0" comment="" condition="Timeout" />
+      </NextBlocks>
+    </Block>
+    <Block id="696" type="Decide" version="1">
+      <BlockData>
+        <Comment />
+        <Expression format="field" type="bool">
+          <Value>OfficialMemoBase#root/message/approvalRequired</Value>
+          <Compiled />
+        </Expression>
+      </BlockData>
+      <NextBlocks>
+        <NextBlock id="664" save="1" comment="На подписании" condition="False" />
+        <NextBlock id="590" save="1" comment="На согласовании" condition="True" />
+      </NextBlocks>
+    </Block>
+    <Block id="701" type="Stop" version="0,0000">
+      <BlockData />
+      <NextBlocks />
+    </Block>
+    <Block id="702" type="Join" version="1">
+      <BlockData />
+      <NextBlocks>
+        <NextBlock id="670" save="0" comment="На доработку" condition="" />
+      </NextBlocks>
+    </Block>
+    <Block id="706" type="Stop" version="0,0000">
+      <BlockData />
+      <NextBlocks />
+    </Block>
+    <Block id="709" type="Calc" version="1">
+      <BlockData>
+        <Comment />
+        <Table>
+          <Row>
+            <Comment />
+            <Field>OfficialMemoBase#root/reply/decn</Field>
+            <Expression format="constant" type="string">
+              <Value>accept</Value>
+              <Compiled />
+            </Expression>
+          </Row>
+        </Table>
+      </BlockData>
+      <NextBlocks>
+        <NextBlock id="706" save="1" comment="Отправлено в архив" condition="" />
+      </NextBlocks>
+    </Block>
+    <Block id="719" type="Message" version="1">
+      <BlockData>
+        <Comment />
+        <Scheme id="OfficialMemoPerform">
+          <Field id="root" name="Корень" descr="" type="xml" repeat="0" hidden="0" default="" isnull="0" modifier="internal" link="none" values="" complex="" field="" out="0">
+            <Field id="id" name="id" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="&lt;Expression format=&quot;field&quot; type=&quot;string&quot;&gt;&lt;Value&gt;OfficialMemoBase#root/messageGuid&lt;/Value&gt;&lt;Compiled /&gt;&lt;/Expression&gt;" out="" />
+            <Field id="message" name="Сообщение" descr="" type="xml" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="&lt;Expression format=&quot;field&quot; type=&quot;xml&quot;&gt;&lt;Value&gt;OfficialMemoBase#root/message&lt;/Value&gt;&lt;Compiled /&gt;&lt;/Expression&gt;" out="0">
+              <Field id="executor" name="Исполнитель" descr="" type="xml" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="">
+                <Field id="firstName" name="Имя" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+                <Field id="lastName" name="Фамилия" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+                <Field id="middleName" name="Отчество" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+                <Field id="code" name="Код" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+              </Field>
+              <Field id="subject" name="Тема" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+              <Field id="language" name="Язык" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="русский;қазақ" complex="" field="" out="" />
+              <Field id="recipients" name="Получатели" descr="" type="xml" repeat="" hidden="" default="" isnull="0" modifier="internal" link="none" values="" complex="" field="" out="">
+                <Field id="recipient" name="Получатель" descr="" type="xml" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="">
+                  <Field id="firstName" name="Имя" descr="" type="string" repeat="" hidden="" default="" isnull="0" modifier="internal" link="none" values="" complex="" field="" out="" />
+                  <Field id="lastName" name="Фамилия" descr="" type="string" repeat="" hidden="" default="" isnull="0" modifier="internal" link="none" values="" complex="" field="" out="" />
+                  <Field id="middleName" name="Отчество" descr="" type="string" repeat="" hidden="" default="" isnull="0" modifier="internal" link="none" values="" complex="" field="" out="" />
+                  <Field id="code" name="Код" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+                  <Field id="email" name="Email" descr="" type="string" repeat="" hidden="" default="" isnull="0" modifier="internal" link="none" values="" complex="" field="" out="" />
+                  <Field id="decision" name="Решение" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+                </Field>
+              </Field>
+              <Field id="signer" name="Подписывающий" descr="" type="xml" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="">
+                <Field id="firstName" name="Имя" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+                <Field id="lastName" name="Фамилия" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+                <Field id="middleName" name="Отчество" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+                <Field id="code" name="Код" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+              </Field>
+              <Field id="confidenceType" name="Тип конфиденциальности " descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+              <Field id="indexNomenclature" name="Индекс номенклатуры" descr="" type="string" repeat="" hidden="" default="" isnull="1" modifier="internal" link="none" values="" complex="" field="" out="" />
+              <Field id="amountPage" name="Количестов листов" descr="" type="string" repeat="" hidden="" default="" isnull="1" modifier="internal" link="none" values="" complex="" field="" out="" />
+              <Field id="approvalMode" name="Тип согласования" descr="" type="string" repeat="" hidden="" default="" isnull="1" modifier="internal" link="none" values="" complex="" field="" out="" />
+              <Field id="summary" name="Краткое содержание " descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+              <Field id="attachments" name="Вложения" descr="" type="xml" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="">
+                <Field id="attachment" name="Вложение" descr="" type="string" repeat="1" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+              </Field>
+              <Field id="approvers" name="Согласующие" descr="" type="xml" repeat="" hidden="" default="" isnull="1" modifier="internal" link="none" values="" complex="" field="" out="">
+                <Field id="approver" name="Согласующий" descr="" type="xml" repeat="1" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="">
+                  <Field id="firstName" name="Имя" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+                  <Field id="lastName" name="Фамилия" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+                  <Field id="middleName" name="Отчество" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+                  <Field id="code" name="Код" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+                  <Field id="decision" name="Решение" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+                </Field>
+              </Field>
+              <Field id="approvalRequired" name="approvalRequired" descr="" type="bool" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+              <Field id="registrarCode" name="Регистрирующий" descr="" type="string" repeat="" hidden="" default="" isnull="1" modifier="internal" link="none" values="" complex="" field="" out="" />
+            </Field>
+            <Field id="reply" name="Решение" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="accept" complex="" field="" out="" />
+          </Field>
+        </Scheme>
+        <Field>OfficialMemoPerform#root/reply</Field>
+        <ForAll>0</ForAll>
+        <SubprocessAllowed>0</SubprocessAllowed>
+        <MsgComment>
+          <Expression format="constant" type="string">
+            <Value>Исполнение служебной записки</Value>
+            <Compiled />
+          </Expression>
+        </MsgComment>
+        <Table>
+          <Row>
+            <Expression format="field" type="string">
+              <Value>OfficialMemoBase#root/messageGuid</Value>
+              <Compiled />
+            </Expression>
+            <Field>OfficialMemoPerform#root/id</Field>
+            <Output />
+          </Row>
+          <Row>
+            <Expression format="field" type="xml">
+              <Value>OfficialMemoBase#root/message</Value>
+              <Compiled />
+            </Expression>
+            <Field>OfficialMemoPerform#root/message</Field>
+            <Output>0</Output>
+          </Row>
+        </Table>
+        <Reference />
+        <AbsDate />
+        <RelDate>
+          <Expression format="constant" type="int">
+            <Value>1000000</Value>
+            <Compiled />
+          </Expression>
+        </RelDate>
+        <Executors>
+          <Executor>
+            <Code>
+              <Expression format="constant" type="string">
+                <Value>SUBREQUEST_OFFICIALMEMO_RECIPIENTS</Value>
+                <Compiled />
+              </Expression>
+            </Code>
+          </Executor>
+        </Executors>
+        <Inspectors />
+        <DeadLine />
+      </BlockData>
+      <NextBlocks>
+        <NextBlock id="736" save="1" comment="На проверке" condition="accept" />
+        <NextBlock id="719" save="0" comment="" condition="Timeout" />
+      </NextBlocks>
+    </Block>
+    <Block id="727" type="Message" version="1">
+      <BlockData>
+        <Comment />
+        <Scheme id="OfficialMemoReview">
+          <Field id="root" name="Корень" descr="" type="xml" repeat="0" hidden="0" default="" isnull="0" modifier="internal" link="none" values="" complex="" field="" out="0">
+            <Field id="id" name="id" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="&lt;Expression format=&quot;field&quot; type=&quot;string&quot;&gt;&lt;Value&gt;OfficialMemoBase#root/messageGuid&lt;/Value&gt;&lt;Compiled /&gt;&lt;/Expression&gt;" out="" />
+            <Field id="executor" name="Исполнитель" descr="" type="xml" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="">
+              <Field id="firstName" name="Имя" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+              <Field id="lastName" name="Фамилия" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+              <Field id="middleName" name="Отчество" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+              <Field id="code" name="Код" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+            </Field>
+            <Field id="reply" name="Решение" descr="" type="xml" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="&lt;Expression format=&quot;field&quot; type=&quot;xml&quot;&gt;&lt;Value&gt;OfficialMemoBase#root/reply&lt;/Value&gt;&lt;Compiled /&gt;&lt;/Expression&gt;" out="1">
+              <Field id="dec" name="dec" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="accept;rework;revoke" complex="" field="" out="" />
+              <Field id="decn" name="decn" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+              <Field id="comment" name="ReplyComment" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+              <Field id="documents" name="documents" descr="" type="xml" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="">
+                <Field id="document" name="document" descr="" type="string" repeat="1" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+              </Field>
+              <Field id="repliedBy" name="repliedBy" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+              <Field id="replyDate" name="replyDate" descr="" type="double" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+            </Field>
+          </Field>
+        </Scheme>
+        <Field>OfficialMemoReview#root/reply/dec</Field>
+        <ForAll>0</ForAll>
+        <SubprocessAllowed>0</SubprocessAllowed>
+        <MsgComment>
+          <Expression format="constant" type="string">
+            <Value>Регистратор. Проверка служебной записки</Value>
+            <Compiled />
+          </Expression>
+        </MsgComment>
+        <Table>
+          <Row>
+            <Expression format="field" type="string">
+              <Value>OfficialMemoBase#root/messageGuid</Value>
+              <Compiled />
+            </Expression>
+            <Field>OfficialMemoReview#root/id</Field>
+            <Output />
+          </Row>
+          <Row>
+            <Expression format="field" type="xml">
+              <Value>OfficialMemoBase#root/reply</Value>
+              <Compiled />
+            </Expression>
+            <Field>OfficialMemoReview#root/reply</Field>
+            <Output>1</Output>
+          </Row>
+        </Table>
+        <Reference />
+        <AbsDate />
+        <RelDate>
+          <Expression format="constant" type="int">
+            <Value>1000000</Value>
+            <Compiled />
+          </Expression>
+        </RelDate>
+        <Executors>
+          <Executor>
+            <Code>
+              <Expression format="field" type="string">
+                <Value>OfficialMemoBase#root/message/registrarCode</Value>
+                <Compiled />
+              </Expression>
+            </Code>
+          </Executor>
+        </Executors>
+        <Inspectors />
+        <DeadLine />
+      </BlockData>
+      <NextBlocks>
+        <NextBlock id="719" save="1" comment="На исполнении" condition="accept" />
+        <NextBlock id="709" save="1" comment="Отправлено в архив" condition="revoke" />
+        <NextBlock id="702" save="1" comment="На доработку" condition="rework" />
+        <NextBlock id="727" save="0" comment="" condition="redirect" />
+        <NextBlock id="727" save="0" comment="" condition="Timeout" />
+      </NextBlocks>
+    </Block>
+    <Block id="736" type="Message" version="1">
+      <BlockData>
+        <Comment />
+        <Scheme id="OfficialMemoLastReview">
+          <Field id="root" name="Корень" descr="" type="xml" repeat="0" hidden="0" default="" isnull="0" modifier="internal" link="none" values="" complex="" field="" out="0">
+            <Field id="id" name="id" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="&lt;Expression format=&quot;field&quot; type=&quot;string&quot;&gt;&lt;Value&gt;OfficialMemoBase#root/messageGuid&lt;/Value&gt;&lt;Compiled /&gt;&lt;/Expression&gt;" out="" />
+            <Field id="executor" name="Исполнитель" descr="" type="xml" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="">
+              <Field id="firstName" name="Имя" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+              <Field id="lastName" name="Фамилия" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+              <Field id="middleName" name="Отчество" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+              <Field id="code" name="Код" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+            </Field>
+            <Field id="reply" name="Решение" descr="" type="xml" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="&lt;Expression format=&quot;field&quot; type=&quot;xml&quot;&gt;&lt;Value&gt;OfficialMemoBase#root/reply&lt;/Value&gt;&lt;Compiled /&gt;&lt;/Expression&gt;" out="1">
+              <Field id="dec" name="dec" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="accept;rework" complex="" field="" out="" />
+              <Field id="decn" name="decn" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+              <Field id="comment" name="ReplyComment" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+              <Field id="documents" name="documents" descr="" type="xml" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="">
+                <Field id="document" name="document" descr="" type="string" repeat="1" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+              </Field>
+              <Field id="repliedBy" name="repliedBy" descr="" type="string" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+              <Field id="replyDate" name="replyDate" descr="" type="double" repeat="" hidden="" default="" isnull="" modifier="internal" link="none" values="" complex="" field="" out="" />
+            </Field>
+          </Field>
+        </Scheme>
+        <Field>OfficialMemoLastReview#root/reply/dec</Field>
+        <ForAll>0</ForAll>
+        <SubprocessAllowed>0</SubprocessAllowed>
+        <MsgComment>
+          <Expression format="constant" type="string">
+            <Value>Проверка результатов исполнение</Value>
+            <Compiled />
+          </Expression>
+        </MsgComment>
+        <Table>
+          <Row>
+            <Expression format="field" type="string">
+              <Value>OfficialMemoBase#root/messageGuid</Value>
+              <Compiled />
+            </Expression>
+            <Field>OfficialMemoLastReview#root/id</Field>
+            <Output />
+          </Row>
+          <Row>
+            <Expression format="field" type="xml">
+              <Value>OfficialMemoBase#root/reply</Value>
+              <Compiled />
+            </Expression>
+            <Field>OfficialMemoLastReview#root/reply</Field>
+            <Output>1</Output>
+          </Row>
+        </Table>
+        <Reference />
+        <AbsDate />
+        <RelDate>
+          <Expression format="constant" type="int">
+            <Value>1000000</Value>
+            <Compiled />
+          </Expression>
+        </RelDate>
+        <Executors>
+          <Executor>
+            <Code>
+              <Expression format="field" type="string">
+                <Value>$meta$#Meta/Runtime/Initiator</Value>
+                <Compiled />
+              </Expression>
+            </Code>
+          </Executor>
+        </Executors>
+        <Inspectors />
+        <DeadLine />
+      </BlockData>
+      <NextBlocks>
+        <NextBlock id="701" save="1" comment="Завершено" condition="accept" />
+        <NextBlock id="736" save="0" comment="" condition="Timeout" />
+        <NextBlock id="719" save="1" comment="На доработку" condition="rework" />
+      </NextBlocks>
+    </Block>
+    <Block id="740" type="Decide" version="1">
+      <BlockData>
+        <Comment />
+        <Expression format="field" type="bool">
+          <Value>OfficialMemoBase#root/message/registrarRequired</Value>
+          <Compiled />
+        </Expression>
+      </BlockData>
+      <NextBlocks>
+        <NextBlock id="727" save="1" comment="Регистратор. На проверке" condition="True" />
+        <NextBlock id="719" save="1" comment="На исполнении" condition="False" />
+      </NextBlocks>
+    </Block>
+  </Blocks>
+  <Info>
+    <Code>OfficialMemo</Code>
+    <Version>1</Version>
+    <Title>Служебная записка</Title>
+    <Comments>Создание служебной записки</Comments>
+    <Author>HCSBKKZ\abdikozha.s</Author>
+    <DateTime>30.01.2024 11:19:22</DateTime>
+  </Info>
+</Process>

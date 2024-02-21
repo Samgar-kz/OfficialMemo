@@ -1,0 +1,128 @@
+.times-new-roman,
+.times-new-roman * {
+  font-family: "Times New Roman", serif;
+}
+
+.font-size-16 {
+  font-size: 16px;
+}
+
+.centered {
+  text-align: center;
+}
+.right {
+  text-align: right;
+}
+.justify {
+  text-align: justify;
+}
+pre {
+  tab-size: 4;
+}
+body .typography_wrapper,
+body .typography_wrapper * {
+  color: black !important;
+}
+.typography_wrapper {
+  font-size: 16px;
+  font-family: "Times New Roman", Times, serif;
+  width: 100%;
+  word-wrap: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.typography_wrapper p {
+  line-height: 1rem !important;
+  margin-bottom: 0.5rem;
+}
+.typography_wrapper small {
+  font-size: 0.7rem;
+}
+.separate {
+  display: flex;
+  justify-content: space-between;
+}
+.typography_wrapper .mb--1 {
+  margin-bottom: 0px;
+}
+
+.typography_wrapper ul {
+  padding-left: 0;
+  margin-bottom: 12pt;
+}
+ul.tick,
+ul.dash {
+  list-style: none;
+}
+ul.tick > li:before,
+ul.dash > li:before {
+  margin: 0 6pt 0 24pt;
+}
+ul.tick > li:before {
+  content: "✓";
+}
+ul.dash > li:before {
+  content: "-";
+}
+.typography_wrapper .tabbed {
+  margin-left: 12pt;
+  margin-bottom: 0;
+}
+
+table.table_border_collapse {
+  border-collapse: collapse;
+}
+
+table.thin_border,
+table.thin_border th,
+table.thin_border td {
+  border: 1px solid black;
+  padding: 2px 4px;
+}
+
+.capitalize-first {
+  text-transform: capitalize;
+}
+
+.comment__attechments {
+  display: flex;
+  flex-direction: column;
+}
+.comment__attechment {
+  border-radius: 4px;
+  background-color: #ecf7f8;
+  padding: 0.16em 0.3em;
+}
+.comment__attechment a {
+  text-decoration: none;
+}
+.comment__attechment a:hover {
+  text-decoration: underline;
+}
+
+.attechments {
+  display: flex;
+  flex-direction: column;
+}
+.attechment {
+  border-radius: 4px;
+  background-color: #ecf7f8;
+  padding: 0.16em 0.3em;
+}
+.attechment a {
+  text-decoration: none;
+}
+.attechment a:hover {
+  text-decoration: underline;
+}
+
+.vertical-text {
+  writing-mode: vertical-rl;
+  text-orientation: sideways;
+  transform: rotate(-180deg);
+}
+
+.underline {
+  text-decoration-line: underline;
+  text-underline-offset: 4px;
+}

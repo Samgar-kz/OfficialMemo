@@ -1,0 +1,208 @@
+stages:
+    - build
+    - deploy
+
+before_script:
+  - CHCP 65001
+
+variables:
+    RULES_CHANGES_PATH: "**/*"
+    OBJECTS_DIRECTORY: "obj"
+    NUGET_PACKAGES_DIRECTORY: ".nuget"
+    SOURCE_CODE_PATH: "/"
+    ErrorActionPreference: stop
+    APPLICATION_NAME: OfficialMemo
+    BACKEND_PUBLISH_PATH: 'backend\$APPLICATION_NAME\bin\Release\net7.0\publish'
+    CLIENT_PUBLISH_PATH: 'client\dist'
+
+# cache:
+#     # Per-stage and per-branch caching.
+#     key: "$CI_JOB_STAGE-$CI_COMMIT_REF_SLUG"
+#     paths:
+#         # 1) Main JSON file holding information about package dependency tree, packages versions,
+#         # frameworks etc. It also holds information where to the dependencies were restored.
+#         - "$SOURCE_CODE_PATH$OBJECTS_DIRECTORY/project.assets.json"
+#         # 2) Other NuGet and MSBuild related files. Also needed.
+#         - "$SOURCE_CODE_PATH$OBJECTS_DIRECTORY/*.csproj.nuget.*"
+#         # 3) Path to the directory where restored dependencies are kept.
+#         - "$NUGET_PACKAGES_DIRECTORY"
+#     policy: pull-push
+
+.base-rules:
+    rules:
+        - if: '$CI_COMMIT_BRANCH == "main" && $ENVIRONMENT_BRANCH == "main"'
+          changes: 
+            - $RULES_CHANGES_PATH
+          when: manual
+        - if: $CI_COMMIT_BRANCH == $ENVIRONMENT_BRANCH
+          changes: 
+            - $RULES_CHANGES_PATH
+          when: always
+        - if: '$CI_PIPELINE_SOURCE == "push"'
+          when: never
+        - if: $CI_COMMIT_TAG
+          when: never
+        - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $ENVIRONMENT_BRANCH == "main"'
+          changes:
+              - $RULES_CHANGES_PATH
+          when: manual
+          allow_failure: true
+.manual-when-main:
+    rules:
+        - if: '$CI_COMMIT_BRANCH == "main"'
+          when: manual
+
+##############################################
+############## BACKEND SECTION ###############
+##############################################
+
+.backend:
+    extends: .base-rules
+    variables:
+        RULES_CHANGES_PATH: "backend/**/*"
+
+.backend-build:
+    extends:
+        - .backend
+
+    script:
+        - cd backend
+        - dotnet nuget list source
+        - dotnet publish -c Release /p:EnvironmentName=$ENVIRONMENT
+    artifacts:
+        expire_in: 1 week
+        paths:
+            - $BACKEND_PUBLISH_PATH
+
+backend-build-staging:
+    stage: build
+    extends: .backend-build
+    variables:
+        ENVIRONMENT: Development
+        ENVIRONMENT_BRANCH: "dev"
+    tags:
+        - dotnet
+
+backend-build-production:
+    stage: build
+    extends: .backend-build
+    variables:
+        ENVIRONMENT: Production
+        ENVIRONMENT_BRANCH: "main"
+    tags:
+        - dotnet
+
+.backend-deploy:
+    extends:
+        - .backend
+    variables:
+        GIT_STRATEGY: none
+    script:
+        - New-Item -Path $BACKEND_DEPLOY_PATH -Name 'app_offline.htm' -ItemType 'file' -Force
+        - Start-Sleep 5
+        - Remove-Item $BACKEND_DEPLOY_PATH\* -Recurse -Force
+        - Copy-Item -Path $BACKEND_PUBLISH_PATH\* -Destination $BACKEND_DEPLOY_PATH -Force -PassThru -Recurse
+
+backend-deploy-staging:
+    stage: deploy
+    resource_group: backend-staging
+    extends: .backend-deploy
+    environment:
+        name: Staging
+        url: https://bpm2d:8081/OfficialMemo/api/swagger
+    variables:
+        BACKEND_DEPLOY_PATH: \\bpm2d\Processes\$APPLICATION_NAME\backend
+        ENVIRONMENT_BRANCH: "dev"
+    tags:
+        - dvadmin
+    needs:
+        - backend-build-staging
+
+backend-deploy-production:
+    stage: deploy
+    extends: .backend-deploy
+    resource_group: backend-production
+    environment:
+        name: Production
+        url: https://bpm2/process/OfficialMemo/api/swagger
+    variables:
+        BACKEND_DEPLOY_PATH: \\bpm2-app\wwwroot\web\Process\$APPLICATION_NAME\backend\
+        ENVIRONMENT_BRANCH: "main"
+    tags:
+        - b2admin
+    needs:
+        - backend-build-production
+
+##############################################
+############### CLIENT SECTION ###############
+##############################################
+
+.client:
+    extends: .base-rules
+    variables:
+        RULES_CHANGES_PATH: "client/**/*"
+
+.client-build:
+    stage: build
+    extends: .client
+    script:
+        - cd client
+        - whoami
+        - yarn install
+        - yarn build --mode $ENVIRONMENT --base=$PUBLIC_PATH
+    tags:
+        - node
+    artifacts:
+        expire_in: 1 week
+        paths:
+            - $CLIENT_PUBLISH_PATH
+
+client-build-staging:
+    extends: .client-build
+    variables:
+        ENVIRONMENT: staging
+        ENVIRONMENT_BRANCH: "dev"
+        PUBLIC_PATH: /$APPLICATION_NAME/
+
+client-build-production:
+    extends: .client-build
+    variables:
+        ENVIRONMENT: production
+        ENVIRONMENT_BRANCH: "main"
+        PUBLIC_PATH: /process/$APPLICATION_NAME/
+
+.client-deploy:
+    stage: deploy
+    extends: .client
+    variables:
+        GIT_STRATEGY: none
+    script:
+        - Copy-Item -Path $CLIENT_PUBLISH_PATH\* -Destination $CLIENT_DEPLOY_PATH -Force -PassThru -Recurse
+
+client-deploy-staging:
+    extends: .client-deploy
+    resource_group: client-staging
+    variables:
+        CLIENT_DEPLOY_PATH: '\\bpm2d\processes\$APPLICATION_NAME\frontend\'
+        ENVIRONMENT_BRANCH: "dev"
+    environment:
+        name: Staging
+        url: https://bpm2d:8081/OfficialMemo/api/swagger
+    needs:
+        - client-build-staging
+    tags:
+        - dvadmin
+
+client-deploy-production:
+    extends: .client-deploy
+    resource_group: client-production
+    variables:
+        CLIENT_DEPLOY_PATH: '\\bpm2-app\wwwroot\web\Process\$APPLICATION_NAME\frontend\'
+        ENVIRONMENT_BRANCH: "main"
+    environment:
+        name: Production
+        url: https://bpm2/process/OfficialMemo/api/swagger
+    needs:
+        - client-build-production
+    tags:
+        - b2admin

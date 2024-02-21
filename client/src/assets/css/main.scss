@@ -1,0 +1,172 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: Ubuntu, sans-serif;
+  }
+}
+
+label.required::after {
+  content: "  *";
+  color: red;
+}
+
+.tiny-class tr td {
+  border: solid 1px !important;
+}
+
+.tiny-class p {
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+:root {
+  --color--primary--h: 180deg;
+  --color--primary--s: 100%;
+  --color--primary--l: 27.3%;
+}
+
+#app .tw-bg-secondary {
+  background-color: var(--secondary-color);
+}
+#app .tw-bg-primary {
+  background-color: var(--primary-color);
+}
+
+body {
+  background-color: white;
+}
+
+.pp-bg-primary {
+  background-color: #008b8a;
+}
+
+.pp-text-white {
+  color: white;
+}
+
+.p-overflow-hidden {
+  overflow: auto !important;
+  --scrollbar-width: 0 !important;
+}
+
+.hover-list > .ov-icon {
+  margin-right: 5px;
+  margin-left: 20px;
+}
+
+.hover-list {
+  cursor: pointer;
+  font-size: 16px;
+  padding: 8px 15px 8px 0;
+  line-height: 23px;
+  height: 40px;
+  display: block;
+  @apply tw-font-medium;
+}
+.hover-list:hover {
+  background-color: #e0e4e4;
+  border-radius: 0px 100px 100px 0px;
+  @apply tw-shadow-sm;
+}
+
+.hover-ul {
+  user-select: none;
+  min-inline-size: -webkit-fill-available;
+}
+
+.mb-end {
+  margin-block-end: auto;
+}
+
+.p-float-label .p-disabled,
+.p-float-label .p-component:disabled {
+  opacity: 1 !important;
+}
+
+.p-dropdown-item {
+  max-width: 650px;
+  text-overflow: ellipsis !important;
+}
+
+.p-autocomplete-item {
+  max-width: 790px;
+  text-overflow: ellipsis !important;
+}
+
+.p-divider-horizontal {
+  // border-top: 2px #000 solid !important;
+}
+
+.p-divider.p-divider-horizontal {
+  // margin: 0 !important;
+}
+.divider-text {
+  color: #9d277d;
+}
+
+.ck-editor__editable_inline {
+  min-height: 300px;
+}
+
+.content-position {
+  display: flex;
+  justify-content: space-between;
+}
+
+#content-table td:nth-child(1) {
+  width: 15%;
+  vertical-align: top;
+}
+
+.content-header {
+  padding-top: 3rem;
+  padding-bottom: 1.25rem;
+  line-height: 1.25rem;
+}
+
+.content-top-header {
+  display: flex;
+  justify-content: space-between;
+}
+.w-40percent {
+  width: 40%;
+}
+
+.padding-left-5 {
+  padding-left: 1.25rem;
+}
+
+#main_content {
+  line-height: 1.25rem;
+}
+
+.p-tooltip-right .p-tooltip-arrow {
+  border-width: 0.25em 0.25em 0.25em 0 !important;
+}
+.p-tooltip-arrow {
+  border-top-color: transparent !important;
+  border-bottom-color: transparent !important;
+}
+
+.p-tooltip {
+  padding-left: 5px;
+}
+
+.text-wrap {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: block;
+}
+
+.ql-picker.ql-header {
+  width: 120px !important;
+}
+
+.p-scrolltop {
+  background-color: var(--primary-color);
+}

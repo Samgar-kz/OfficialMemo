@@ -1,0 +1,167 @@
+﻿@inherits Signer.Models.SignData
+@{
+    // var Model = new Signer.Models.SignData();
+    var firstPart = Model.SignerSignature.Base64Text.Substring(0, 8);
+    var lastPart = Model.SignerSignature.Base64Text.Substring(Model.SignerSignature.Base64Text.Length - 8);
+}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Подписанные данные</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        table {
+            border-collapse: collapse;
+            border: 1px solid #ccc;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        a {
+            color: #1a0dab;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<!-- Russian table -->
+<table>
+    <tbody>
+    <tr>
+        <th>Тип документа</th>
+        <td>@Model.DocumentType.RuValue</td>
+    </tr>
+    <tr>
+        <th>Номер и дата документа</th>
+        <td>№ @Model.RegNum от @Model.RegisterDate.ToString("dd.MM.yyyy") г.</td>
+    </tr>
+    <tr>
+        <th>Автор</th>
+        <td>@Model.Sender?.Name.RuValue</td>
+    </tr>
+    <tr>
+        <th>Получатель (-и)</th>
+        <td>
+            @if (Model.Receivers != null)
+            {
+                foreach (var receiver in Model.Receivers)
+                {
+                    <text>@receiver.Name.RuValue<br/></text>
+                }
+            }
+        </td>
+    </tr>
+    <tr>
+        <th rowspan="0">Электронные цифровые подписи документа</th>
+
+        @if (Model.SignerSignature != null)
+        {
+            <td>
+                <text>
+                    @Model.SignerSignature.SignedBy.Name<br/>
+                    @firstPart...@lastPart<br/>
+                    Время подписи: @Model.SignerSignature.SignedDate.ToString("dd.MM.yyyy HH:mm")<br/>
+                </text>
+            </td>
+        }
+    </tr>
+    @if (Model.RegistrarSignature != null)
+    {
+        <tr>
+            <td>
+                <text>
+                    ЭЦП канцелярии: @Model.RegistrarSignature.SignedBy.Name<br/>
+                    
+                    @firstPart...@lastPart<br/>
+                    Время подписи: @Model.RegistrarSignature.SignedDate.ToString("dd.MM.yyyy HH:mm")<br/>
+                </text>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+<!-- Kazakh table -->
+<table>
+    <tbody>
+    <tr>
+        <th>Құжат түрі</th>
+        <td>@Model.DocumentType.KzValue</td>
+    </tr>
+    <tr>
+        <th>Құжат нөмірі және күні</th>
+        <td>№ @Model.RegNum @Model.RegisterDate.ToString("dd.MM.yyyy")-ж.</td>
+    </tr>
+    <tr>
+        <th>Автор</th>
+        <td>@Model.Sender?.Name.KzValue</td>
+    </tr>
+    <tr>
+        <th>Алушы (-лар)</th>
+        <td>
+            @if (Model.Receivers != null)
+            {
+                foreach (var receiver in Model.Receivers)
+                {
+                    <text>@receiver.Name.KzValue<br/></text>
+                }
+            }
+        </td>
+    </tr>
+    <tr>
+        <th rowspan="0">Құжаттың электронды цифрлық қолтаңбалары</th>
+
+        @if (Model.SignerSignature != null)
+        {
+            <td>
+                <text>
+                    @Model.SignerSignature.SignedBy.Name<br/>
+                    
+                    @firstPart...@lastPart<br/>
+                    Қолтаңбаның уақыты: @Model.SignerSignature.SignedDate.ToString("dd.MM.yyyy HH:mm")<br/>
+                </text>
+            </td>
+        }
+    </tr>
+    @if (Model.RegistrarSignature != null)
+    {
+        <tr>
+
+            <td>
+                <text>
+                    Канцелярияның ЭЦҚ: @Model.RegistrarSignature.SignedBy.Name<br/>
+                    
+                    @firstPart...@lastPart<br/>
+                    Қолтаңбаның уақыты: @Model.RegistrarSignature.SignedDate.ToString("dd.MM.yyyy HH:mm")<br/>
+                </text>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+</body>
+</html>
