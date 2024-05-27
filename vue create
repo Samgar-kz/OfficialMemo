@@ -1,0 +1,33 @@
+vue create project
+jsconfig.json add compilerOption  "jsx": "preserve",
+vue add vuetify
+
+
+
+yarn create vite
+yarn add vue-router@4
+yarn add unplugin-vue-components -D
+
+
+yarn add -D tailwindcss postcss autoprefixer
+yarn tailwindcss init -p
+yarn add sass
+
+yarn add primevue
+yarn add primeicons
+
+yarn add oh-vue-icons
+yarn add vue-loading-overlay
+
+npm i --save-dev @vue/tsconfig 
+npm i --save-dev @types/node
+
+yarn add uuid
+
+yarn add sweetalert2
+
+yarn add vee-validate
+yarn add @vueuse/core
+yarn add axios
+
+
